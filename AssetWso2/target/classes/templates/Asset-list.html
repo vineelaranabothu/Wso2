@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<title>Thymeleaf</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	
+</head>
+<body>
+<div class="container">
+	<h2>Asset Details</h2>
+	<hr/>
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>id</th>
+				<th>tenent_id</th>
+				<th>name</th>
+				<th>status</th>
+				<th>external_id</th>
+				<th>parent</th>
+				<th>del</th>
+				<th>image_url</th>
+				<th>tenent_name</th>
+				<th>createdAt</th>
+				<th>Action</th>
+				
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="tempasset : ${asset}">
+				<td th:text = "${tempasset.id}"/>
+				<td th:text = "${tempasset.tenent_id}"/>
+				<td th:text = "${tempasset.name}"/>
+		    	<td th:text = "${tempasset.status}"/>	
+				<td th:text = "${tempasset.external_id}"/>	
+				<td th:text = "${tempasset.parent}"/>	
+				<td th:text = "${tempasset.del}"/>	
+				<td th:text = "${tempasset.image_url}"/>
+				<td th:text = "${tempasset.tenent_name}"/>
+				<td th:text = "${tempasset.createdAt}"/>	
+				<td>
+				    <a th:href="@{/api/delete(id=${tempasset.id})}" class="btn btn-info btn-sm">Delete</a>		
+				</td>		
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
